@@ -1,11 +1,24 @@
-### Java Spring template project
+# Fexing
 
-This project is based on a GitLab [Project Template](https://docs.gitlab.com/ee/gitlab-basics/create-project.html).
+Collection of utilities and controls to support JavaFX projects
 
-Improvements can be proposed in the [original project](https://gitlab.com/gitlab-org/project-templates/spring).
 
-### CI/CD with Auto DevOps
+Easy steps to use Fexing:
+#### 1. Add maven repository
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
 
-This template is compatible with [Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/).
-
-If Auto DevOps is not already enabled for this project, you can [turn it on](https://docs.gitlab.com/ee/topics/autodevops/#enabling-auto-devops) in the project settings.
+#### 2. Add this project as maven dependency
+```xml
+<dependency>
+    <groupId>com.gitlab.muhammadkholidb</groupId>
+    <artifactId>fexing</artifactId>
+    <version>master-SNAPSHOT</version>
+</dependency>
+```
