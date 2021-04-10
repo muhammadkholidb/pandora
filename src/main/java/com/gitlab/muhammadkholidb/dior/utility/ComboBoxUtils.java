@@ -80,7 +80,7 @@ public class ComboBoxUtils {
         cb.setConverter(converter);
     }
 
-    public static void initBasic(ComboBox<BasicComboBoxModel> cb, BasicComboBoxModel data) {
+    public static void initBasic(ComboBox<BasicComboBoxModel> cb, BasicComboBoxModel... data) {
         init(cb, new DefaultStringConverterAdapter<>(cb) {
 
             @Override
