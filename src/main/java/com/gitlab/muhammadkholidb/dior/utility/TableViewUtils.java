@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.fexing.utility;
+package com.gitlab.muhammadkholidb.dior.utility;
 
 import java.util.function.Function;
 

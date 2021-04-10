@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.fexing.utility;
+package com.gitlab.muhammadkholidb.dior.utility;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;

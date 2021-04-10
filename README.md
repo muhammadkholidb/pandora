@@ -1,9 +1,9 @@
-# Fexing
+# Dior
 
 Collection of utilities and controls to support JavaFX projects
 
 
-Easy steps to use Fexing:
+Easy steps to use Dior:
 #### 1. Add maven repository
 ```xml
 <repositories>
@@ -18,7 +18,7 @@ Easy steps to use Fexing:
 ```xml
 <dependency>
     <groupId>com.gitlab.muhammadkholidb</groupId>
-    <artifactId>fexing</artifactId>
+    <artifactId>dior</artifactId>
     <version>master-SNAPSHOT</version>
 </dependency>
 ```

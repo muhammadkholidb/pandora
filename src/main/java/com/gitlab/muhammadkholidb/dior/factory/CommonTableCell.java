@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.fexing.factory;
+package com.gitlab.muhammadkholidb.dior.factory;
 
 import javafx.scene.control.TableCell;
 

@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.fexing.formatter;
+package com.gitlab.muhammadkholidb.dior.formatter;
 
 import javafx.scene.control.TextFormatter;
 

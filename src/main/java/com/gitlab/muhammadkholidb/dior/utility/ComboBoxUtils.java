@@ -1,9 +1,9 @@
-package com.gitlab.muhammadkholidb.fexing.utility;
+package com.gitlab.muhammadkholidb.dior.utility;
 
 import java.util.function.Supplier;
 
-import com.gitlab.muhammadkholidb.fexing.converter.DefaultStringConverterAdapter;
-import com.gitlab.muhammadkholidb.fexing.model.BasicComboBoxModel;
+import com.gitlab.muhammadkholidb.dior.converter.DefaultStringConverterAdapter;
+import com.gitlab.muhammadkholidb.dior.model.BasicComboBoxModel;
 
 import org.apache.commons.lang3.ArrayUtils;
 

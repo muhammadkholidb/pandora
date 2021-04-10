@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.fexing.model;
+package com.gitlab.muhammadkholidb.dior.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

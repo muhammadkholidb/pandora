@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.fexing.constant;
+package com.gitlab.muhammadkholidb.dior.constant;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
