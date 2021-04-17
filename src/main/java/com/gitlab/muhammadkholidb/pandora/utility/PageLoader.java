@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.dior.utility;
+package com.gitlab.muhammadkholidb.pandora.utility;
 
 import java.io.IOException;
 import java.net.URL;

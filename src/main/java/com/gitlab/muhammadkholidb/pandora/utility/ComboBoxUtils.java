@@ -1,9 +1,9 @@
-package com.gitlab.muhammadkholidb.dior.utility;
+package com.gitlab.muhammadkholidb.pandora.utility;
 
 import java.util.function.Supplier;
 
-import com.gitlab.muhammadkholidb.dior.converter.DefaultStringConverterAdapter;
-import com.gitlab.muhammadkholidb.dior.model.BasicComboBoxModel;
+import com.gitlab.muhammadkholidb.pandora.converter.DefaultStringConverterAdapter;
+import com.gitlab.muhammadkholidb.pandora.model.BasicComboBoxModel;
 
 import org.apache.commons.lang3.ArrayUtils;
 

@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.dior.model;
+package com.gitlab.muhammadkholidb.pandora.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

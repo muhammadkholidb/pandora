@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.dior.formatter;
+package com.gitlab.muhammadkholidb.pandora.formatter;
 
 import javafx.scene.control.TextFormatter;
 

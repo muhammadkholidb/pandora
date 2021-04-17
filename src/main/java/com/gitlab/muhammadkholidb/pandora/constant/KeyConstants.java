@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.dior.constant;
+package com.gitlab.muhammadkholidb.pandora.constant;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;

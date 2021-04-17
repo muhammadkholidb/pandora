@@ -1,4 +1,4 @@
-package com.gitlab.muhammadkholidb.dior.factory;
+package com.gitlab.muhammadkholidb.pandora.factory;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
