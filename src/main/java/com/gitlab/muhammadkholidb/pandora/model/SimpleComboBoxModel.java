@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class BasicComboBoxModel {
+public class SimpleComboBoxModel {
     private String value;
     private String label;
 }

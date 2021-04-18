@@ -3,7 +3,7 @@ package com.gitlab.muhammadkholidb.pandora.utility;
 import java.util.function.Supplier;
 
 import com.gitlab.muhammadkholidb.pandora.converter.DefaultStringConverterAdapter;
-import com.gitlab.muhammadkholidb.pandora.model.BasicComboBoxModel;
+import com.gitlab.muhammadkholidb.pandora.model.SimpleComboBoxModel;
 
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -80,11 +80,11 @@ public class ComboBoxUtils {
         cb.setConverter(converter);
     }
 
-    public static void initBasic(ComboBox<BasicComboBoxModel> cb, BasicComboBoxModel... data) {
+    public static void initSimple(ComboBox<SimpleComboBoxModel> cb, SimpleComboBoxModel... data) {
         init(cb, new DefaultStringConverterAdapter<>(cb) {
 
             @Override
-            protected String getDisplayText(BasicComboBoxModel vm) {
+            protected String getDisplayText(SimpleComboBoxModel vm) {
                 return vm.getLabel();
             }
 
