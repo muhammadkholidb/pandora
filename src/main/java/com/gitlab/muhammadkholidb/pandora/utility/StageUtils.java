@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 import com.gitlab.muhammadkholidb.pandora.exception.StageException;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javafx.scene.Scene;
@@ -23,13 +24,42 @@ public class StageUtils {
     private StageUtils() {
     }
 
+    /**
+     * Initializes this class with default values.
+     * 
+     * @param defaultTitle     default title for a stage.
+     * @param defaultIconPaths default icon paths for a stage.
+     */
     public static void init(String defaultTitle, String[] defaultIconPaths) {
+        if (ObjectUtils.allNotNull(StageUtils.defaultTitle, StageUtils.defaultIconPaths)) {
+            throw new IllegalStateException("Already initialized! Call reset() before reinitialize.");
+        }
         StageUtils.defaultTitle = defaultTitle;
         StageUtils.defaultIconPaths = defaultIconPaths;
     }
 
-    public static Stage show(IPage page, String title, String[] iconPaths, boolean resizeable,
+    /**
+     * Resets this class's default values to null.
+     */
+    public static void reset() {
+        StageUtils.defaultTitle = null;
+        StageUtils.defaultIconPaths = null;
+    }
+
+    /**
+     * Creates and displays a stage.
+     * 
+     * @param page       page to display in this stage.
+     * @param title      stage title.
+     * @param iconPaths  stage icon paths.
+     * @param resizeable is this stage can be resized?
+     * @param modality   modality of the stage.
+     * @param onClose    action to run on stage close.
+     * @return the created and displayed stage.
+     */
+    public static Stage open(IPage page, String title, String[] iconPaths, boolean resizeable, Modality modality,
             Consumer<WindowEvent> onClose) {
+
         try {
             Pane container = PageLoader.load(page);
             Scene scene = new Scene(container);
@@ -41,7 +71,7 @@ public class StageUtils {
                 stage.setTitle(title);
             }
             stage.setResizable(resizeable);
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(modality);
             stage.setScene(scene);
             if (onClose != null) {
                 stage.setOnHidden(onClose::accept);
@@ -53,20 +83,36 @@ public class StageUtils {
         }
     }
 
-    public static Stage show(IPage page, boolean resizeable, Consumer<WindowEvent> onClose) {
-        return show(page, defaultTitle, defaultIconPaths, resizeable, onClose);
+    public static Stage open(IPage page, boolean resizeable, Consumer<WindowEvent> onClose) {
+        return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.NONE, onClose);
     }
 
-    public static Stage show(IPage page, boolean resizeable) {
-        return show(page, resizeable, null);
+    public static Stage open(IPage page, boolean resizeable) {
+        return open(page, resizeable, null);
     }
 
-    public static Stage show(IPage page, Consumer<WindowEvent> onClose) {
-        return show(page, true, onClose);
+    public static Stage open(IPage page, Consumer<WindowEvent> onClose) {
+        return open(page, true, onClose);
     }
 
-    public static Stage show(IPage page) {
-        return show(page, null);
+    public static Stage open(IPage page) {
+        return open(page, null);
+    }
+
+    public static Stage modal(IPage page, boolean resizeable, Consumer<WindowEvent> onClose) {
+        return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.APPLICATION_MODAL, onClose);
+    }
+
+    public static Stage modal(IPage page, boolean resizeable) {
+        return modal(page, resizeable, null);
+    }
+
+    public static Stage modal(IPage page, Consumer<WindowEvent> onClose) {
+        return modal(page, true, onClose);
+    }
+
+    public static Stage modal(IPage page) {
+        return modal(page, null);
     }
 
     public static void setIcons(Stage stage, String... iconPaths) {

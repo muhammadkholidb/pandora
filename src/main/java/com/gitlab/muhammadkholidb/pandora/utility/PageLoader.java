@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 import javafx.fxml.FXMLLoader;
 
 public class PageLoader {
@@ -18,8 +20,16 @@ public class PageLoader {
     }
 
     public static void init(String resourcePath, Supplier<ResourceBundle> bundleSupplier) {
+        if (ObjectUtils.allNotNull(PageLoader.resourcePath, PageLoader.bundleSupplier)) {
+            throw new IllegalStateException("Already initialized! Call reset() before reinitialize.");
+        }
         PageLoader.resourcePath = resourcePath;
         PageLoader.bundleSupplier = bundleSupplier;
+    }
+
+    public static void reset() {
+        PageLoader.resourcePath = null;
+        PageLoader.bundleSupplier = null;
     }
 
     public static <T> T load(IPage page) throws IOException {
