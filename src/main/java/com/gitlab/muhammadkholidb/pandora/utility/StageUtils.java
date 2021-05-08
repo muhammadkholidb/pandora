@@ -11,7 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -61,8 +60,8 @@ public class StageUtils {
             Consumer<WindowEvent> onClose) {
 
         try {
-            Pane container = PageLoader.load(page);
-            Scene scene = new Scene(container);
+            PageContext container = PageLoader.load(page);
+            Scene scene = new Scene(container.getRoot());
             Stage stage = new Stage();
             if (ArrayUtils.isNotEmpty(iconPaths)) {
                 setIcons(stage, iconPaths);

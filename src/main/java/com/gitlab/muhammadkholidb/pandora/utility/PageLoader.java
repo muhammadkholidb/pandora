@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 import org.apache.commons.lang3.ObjectUtils;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 public class PageLoader {
 
@@ -32,11 +33,11 @@ public class PageLoader {
         PageLoader.bundleSupplier = null;
     }
 
-    public static <T> T load(IPage page) throws IOException {
+    public static PageContext load(IPage page) throws IOException {
         return load(page, bundleSupplier.get());
     }
 
-    public static <T> T load(IPage page, ResourceBundle resourceBundle) throws IOException {
+    public static PageContext load(IPage page, ResourceBundle resourceBundle) throws IOException {
         String templateName = page.templateName();
         String path = String.format("%s%s", resourcePath,
                 (templateName.endsWith(TEMPLATE_SUFFIX) ? templateName : templateName + TEMPLATE_SUFFIX));
@@ -44,7 +45,13 @@ public class PageLoader {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(location);
         loader.setResources(resourceBundle);
-        return loader.load();
+        Parent root = loader.load();
+        PageContext pageContext = new PageContext();
+        pageContext.setRoot(root);
+        pageContext.setController(loader.getController());
+        pageContext.setLocation(location);
+        pageContext.setResources(resourceBundle);
+        return pageContext;
     }
 
 }
