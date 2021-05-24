@@ -5,19 +5,19 @@ import org.controlsfx.validation.Severity;
 
 import javafx.scene.control.Control;
 
-public class BlankValidator extends BaseValidator<String> {
+public class WhitespaceValidator extends BaseValidator<String> {
 
-    public BlankValidator(String message, Severity severity) {
+    public WhitespaceValidator(String message, Severity severity) {
         super(message, severity);
     }
 
-    public BlankValidator(String message) {
+    public WhitespaceValidator(String message) {
         super(message);
     }
 
     @Override
     protected boolean getCondition(Control control, String value) {
-        return StringUtils.isBlank(value);
+        return StringUtils.isWhitespace(value);
     }
     
 }
