@@ -1,5 +1,6 @@
 package com.gitlab.muhammadkholidb.pandora.utility;
 
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import com.gitlab.muhammadkholidb.pandora.converter.DefaultStringConverterAdapter;
@@ -89,6 +90,17 @@ public class ComboBoxUtils {
             }
 
         }, data);
+    }
+
+    /**
+     * Listens on selected item changes, accepts old value and new value.
+     * 
+     * @param <T> type parameter of the ComboBox
+     * @param cb the ComboBox to listen to selected item changes
+     * @param consumer the consumer of old value and new value
+     */
+    public static <T> void onSelectedItemChanged(ComboBox<T> cb, BiConsumer<T, T> consumer) {
+        cb.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> consumer.accept(ov, nv));
     }
 
 }

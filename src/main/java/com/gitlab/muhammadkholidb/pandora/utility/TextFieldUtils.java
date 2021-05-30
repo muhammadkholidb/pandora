@@ -1,6 +1,7 @@
 package com.gitlab.muhammadkholidb.pandora.utility;
 
 import java.util.Arrays;
+import java.util.function.BiConsumer;
 
 import com.gitlab.muhammadkholidb.pandora.formatter.DigitFormatter;
 
@@ -27,6 +28,16 @@ public class TextFieldUtils {
         if (ArrayUtils.isNotEmpty(textFields)) {
             Arrays.asList(textFields).forEach(tf -> tf.setText(text));
         }
+    }
+
+    /**
+     * Listens to TextField text changes, accepts old value and new value.
+     * 
+     * @param tf the TextField to listen to text changes
+     * @param consumer the consumer of old value and new value
+     */
+    public static void onTextChanged(TextField tf, BiConsumer<String, String> consumer) {
+        tf.textProperty().addListener((o, ov, nv) -> consumer.accept(ov, nv));
     }
 
 }
