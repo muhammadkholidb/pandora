@@ -1,7 +1,6 @@
 package com.gitlab.muhammadkholidb.pandora.utility;
 
 import java.util.Arrays;
-import java.util.function.Consumer;
 
 import com.gitlab.muhammadkholidb.pandora.exception.StageException;
 
@@ -9,6 +8,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -57,7 +57,7 @@ public class StageUtils {
      * @return the created and displayed stage.
      */
     public static Stage open(IPage page, String title, String[] iconPaths, boolean resizeable, Modality modality,
-            Consumer<WindowEvent> onClose) {
+            EventHandler<WindowEvent> onClose) {
 
         try {
             PageContext container = PageLoader.load(page);
@@ -73,7 +73,7 @@ public class StageUtils {
             stage.initModality(modality);
             stage.setScene(scene);
             if (onClose != null) {
-                stage.setOnHidden(onClose::accept);
+                stage.setOnHidden(onClose::handle);
             }
             stage.show();
             return stage;
@@ -82,7 +82,7 @@ public class StageUtils {
         }
     }
 
-    public static Stage open(IPage page, boolean resizeable, Consumer<WindowEvent> onClose) {
+    public static Stage open(IPage page, boolean resizeable, EventHandler<WindowEvent> onClose) {
         return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.NONE, onClose);
     }
 
@@ -90,7 +90,7 @@ public class StageUtils {
         return open(page, resizeable, null);
     }
 
-    public static Stage open(IPage page, Consumer<WindowEvent> onClose) {
+    public static Stage open(IPage page, EventHandler<WindowEvent> onClose) {
         return open(page, true, onClose);
     }
 
@@ -98,7 +98,7 @@ public class StageUtils {
         return open(page, null);
     }
 
-    public static Stage modal(IPage page, boolean resizeable, Consumer<WindowEvent> onClose) {
+    public static Stage modal(IPage page, boolean resizeable, EventHandler<WindowEvent> onClose) {
         return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.APPLICATION_MODAL, onClose);
     }
 
@@ -106,7 +106,7 @@ public class StageUtils {
         return modal(page, resizeable, null);
     }
 
-    public static Stage modal(IPage page, Consumer<WindowEvent> onClose) {
+    public static Stage modal(IPage page, EventHandler<WindowEvent> onClose) {
         return modal(page, true, onClose);
     }
 
