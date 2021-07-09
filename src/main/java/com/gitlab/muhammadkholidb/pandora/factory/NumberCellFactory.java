@@ -13,15 +13,14 @@ public class NumberCellFactory<E, T extends Number> implements Callback<TableCol
 
     public static final int DEFAULT_DECIMAL_DIGIT = 0;
 
-    private static final Locale BAHASA_ISO_2 = new Locale("id");
-    private static final Locale BAHASA_ISO_3 = new Locale("ind");
+    private static final Locale LOCALE_INDONESIAN = new Locale("id");
 
     private int decimalDigit;
     private char decimalSeparator;
     private char thousandSeparator;
 
     public NumberCellFactory(int decimalDigit, Locale locale) {
-        boolean isBahasa = locale.equals(BAHASA_ISO_2) || locale.equals(BAHASA_ISO_3);
+        boolean isBahasa = LOCALE_INDONESIAN.getLanguage().equals(locale.getLanguage());
         this.decimalDigit = decimalDigit;
         this.decimalSeparator = isBahasa ? ',' : '.';
         this.thousandSeparator = isBahasa ? '.' : ',';
