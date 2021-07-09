@@ -8,15 +8,16 @@ import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
-import com.gitlab.muhammadkholidb.pandora.JavaFXTestBase;
-
 import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationResult;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.framework.junit5.ApplicationExtension;
 
 import javafx.scene.control.TextField;
 
-public class EmailValidatorTest extends JavaFXTestBase {
+@ExtendWith(ApplicationExtension.class)
+public class EmailValidatorTest {
 
     @Test
     void testApply_validEmail_shouldHasNoErrors() {

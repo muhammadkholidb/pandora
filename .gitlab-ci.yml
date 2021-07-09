@@ -27,13 +27,8 @@ test:
   variables:
     JACOCO_REPORT_HTML: $CI_PROJECT_DIR/target/site/jacoco/index.html
   stage: test
-  before_script:
-    - apt-get update 
-    - apt-get install -y xvfb
-    - Xvfb :99 &>/dev/null &
-    - export DISPLAY=:99
   script:
-    - mvn $MAVEN_CLI_OPTS -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw -Dprism.verbose=true verify
+    - mvn $MAVEN_CLI_OPTS verify
     - if [ -f $JACOCO_REPORT_HTML ]; then cat $JACOCO_REPORT_HTML | grep -o "Total[^%]*%"; fi
   allow_failure: false
   coverage: "/Total.*?([0-9]{1,3})%/"
