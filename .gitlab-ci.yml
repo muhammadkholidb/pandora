@@ -20,6 +20,7 @@ cache:
 
 default:
   before_script:
+    - apt-get update 
     - apt-get install -y xvfb
     - export DISPLAY=:99
 
