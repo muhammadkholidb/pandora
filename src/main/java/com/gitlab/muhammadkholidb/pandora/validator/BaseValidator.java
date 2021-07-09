@@ -15,7 +15,7 @@ public abstract class BaseValidator<T> implements Validator<T> {
     private String message;
     private Severity severity;
 
-    public BaseValidator(String message) {
+    protected BaseValidator(String message) {
         this.message = message;
         this.severity = Severity.ERROR;
     }
