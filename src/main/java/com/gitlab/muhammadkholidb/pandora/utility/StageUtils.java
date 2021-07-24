@@ -78,7 +78,7 @@ public class StageUtils {
             stage.show();
             return stage;
         } catch (Exception e) {
-            throw new StageException(String.format("Failed to show page %s: %s", page.toString(), e.getMessage()));
+            throw new StageException(String.format("Failed to show page %s: %s", page.toString(), e.getMessage()), e);
         }
     }
 
