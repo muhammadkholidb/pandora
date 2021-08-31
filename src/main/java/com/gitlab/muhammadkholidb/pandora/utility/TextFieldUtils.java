@@ -20,8 +20,8 @@ public class TextFieldUtils {
         }
     }
 
-    public static void setTextNull(TextField... textFields) {
-        setText(null, textFields);
+    public static void setTextEmpty(TextField... textFields) {
+        setText("", textFields);
     }
 
     public static void setText(String text, TextField... textFields) {
