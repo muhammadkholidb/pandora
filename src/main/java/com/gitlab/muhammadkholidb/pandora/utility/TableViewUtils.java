@@ -5,8 +5,10 @@ import java.util.function.Function;
 import org.apache.commons.lang3.StringUtils;
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
 public class TableViewUtils {
@@ -41,6 +43,18 @@ public class TableViewUtils {
 
     public static <M, T> void initTableColumn(TableColumn<M, T> col, Function<M, T> valueFunction, String style) {
         initTableColumn(col, null, valueFunction, style);
+    }
+
+    public static boolean hasItemSelected(TableView<?> table) {
+        return !table.getSelectionModel().isEmpty();
+    }
+
+    public static <T> T getSelectedItem(TableView<T> table) {
+        return table.getSelectionModel().getSelectedItem();
+    }
+
+    public static <T> ObservableList<T> getSelectedItems(TableView<T> table) {
+        return table.getSelectionModel().getSelectedItems();
     }
 
 }

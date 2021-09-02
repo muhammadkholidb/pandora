@@ -22,7 +22,7 @@ public class ComboBoxUtils {
     }
 
     public static boolean hasItemSelected(ComboBox<?> cb) {
-        return cb.getSelectionModel().getSelectedItem() != null;
+        return !cb.getSelectionModel().isEmpty();
     }
 
     public static <T> T getSelectedItem(ComboBox<T> cb) {
