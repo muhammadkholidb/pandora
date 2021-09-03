@@ -1,6 +1,7 @@
 package com.gitlab.muhammadkholidb.pandora.utility;
 
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -37,7 +38,8 @@ public class TableViewUtils {
         }
     }
 
-    public static <M, T> void initTableColumn(TableColumn<M, T> col, Callback<TableColumn<M, T>, TableCell<M, T>> cellFactory, Function<M, T> valueFunction) {
+    public static <M, T> void initTableColumn(TableColumn<M, T> col,
+            Callback<TableColumn<M, T>, TableCell<M, T>> cellFactory, Function<M, T> valueFunction) {
         initTableColumn(col, cellFactory, valueFunction, null);
     }
 
@@ -55,6 +57,20 @@ public class TableViewUtils {
 
     public static <T> ObservableList<T> getSelectedItems(TableView<T> table) {
         return table.getSelectionModel().getSelectedItems();
+    }
+
+    public static <T> int getItemIndex(T item, TableView<T> table) {
+        return getItemIndex((Predicate<T>) t -> t.equals(item), table);
+    }
+
+    public static <T> int getItemIndex(Predicate<T> itemPredicate, TableView<T> table) {
+        ObservableList<T> items = table.getItems();
+        for (int i = 0; i < items.size(); i++) {
+            if (itemPredicate.test(items.get(i))) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 }
