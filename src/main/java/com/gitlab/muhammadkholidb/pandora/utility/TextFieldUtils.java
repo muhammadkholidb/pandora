@@ -31,13 +31,16 @@ public class TextFieldUtils {
     }
 
     /**
-     * Listens to TextField text changes, accepts old value and new value.
+     * Listens to TextField text change, accepts old value and new value.
      * 
-     * @param tf the TextField to listen to text changes
      * @param consumer the consumer of old value and new value
+     * @param tf       the TextField to listen to text change
+     * @param tfs      other TextFields to listen to text change
      */
-    public static void onTextChanged(TextField tf, BiConsumer<String, String> consumer) {
-        tf.textProperty().addListener((o, ov, nv) -> consumer.accept(ov, nv));
+    public static void onTextChanged(BiConsumer<String, String> consumer, TextField tf, TextField... tfs) {
+        for (TextField textField : ArrayUtils.addAll(tfs, tf)) {
+            textField.textProperty().addListener((o, ov, nv) -> consumer.accept(ov, nv));
+        }
     }
 
 }
