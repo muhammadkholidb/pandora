@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.gitlab.muhammadkholidb</groupId>
     <artifactId>pandora</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Pandora</name>
     <description>Collection of utilities and controls to support JavaFX projects</description>
@@ -27,6 +27,11 @@
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
             <version>11.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.synedra</groupId>
+            <artifactId>validatorfx</artifactId>
+            <version>0.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

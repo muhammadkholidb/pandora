@@ -2,6 +2,7 @@ package com.gitlab.muhammadkholidb.pandora.utility;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import com.gitlab.muhammadkholidb.pandora.converter.DefaultStringConverterAdapter;
 import com.gitlab.muhammadkholidb.pandora.model.SimpleComboBoxModel;
@@ -69,8 +70,10 @@ public class ComboBoxUtils {
         cb.getSelectionModel().clearAndSelect(index);
     }
 
-    public static <T> void clearSelection(ComboBox<T> cb) {
-        cb.getSelectionModel().clearSelection();
+    public static void clearSelection(ComboBox<?>... cbs) {
+        if (ArrayUtils.isNotEmpty(cbs)) {
+            Stream.of(cbs).forEach(cb -> cb.getSelectionModel().clearSelection());
+        }
     }
 
     @SuppressWarnings("unchecked")

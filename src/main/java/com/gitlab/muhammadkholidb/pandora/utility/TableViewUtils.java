@@ -9,6 +9,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
@@ -71,6 +72,20 @@ public class TableViewUtils {
             }
         }
         return -1;
+    }
+
+    public static <T> void sort(TableView<T> table, TableColumn<T, ?> column, SortType sortType) {
+        column.setSortType(sortType);
+        table.getSortOrder().add(column);
+        table.sort();
+    }
+
+    public static <T> void sortAscending(TableView<T> table, TableColumn<T, ?> column) {
+        sort(table, column, SortType.ASCENDING);
+    }
+
+    public static <T> void sortDescending(TableView<T> table, TableColumn<T, ?> column) {
+        sort(table, column, SortType.DESCENDING);
     }
 
 }
