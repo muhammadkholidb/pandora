@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public class ValidationResult {
-    
+
     private List<String> messages = new ArrayList<>();
 
     public boolean isValid() {

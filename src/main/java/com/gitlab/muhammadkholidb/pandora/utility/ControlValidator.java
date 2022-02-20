@@ -15,10 +15,11 @@ public class ControlValidator {
 
     @Getter
     private ValidationResult result = new ValidationResult();
-    
+
     private Translator translator;
 
-    public ControlValidator() {}
+    public ControlValidator() {
+    }
 
     public ControlValidator(ResourceBundle resourceBundle) {
         this.translator = new Translator(resourceBundle);

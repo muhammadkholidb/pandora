@@ -30,9 +30,7 @@ public class ControlValidatorTest extends JavaFXTestBase {
         resourceBundle = new ListResourceBundle() {
             @Override
             protected Object[][] getContents() {
-                return new Object[][] {
-                        { "EMPTY", "Empty" }
-                };
+                return new Object[][] { { "EMPTY", "Empty" } };
             }
         };
         controlValidator = new ControlValidator(resourceBundle);

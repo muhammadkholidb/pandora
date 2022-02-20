@@ -40,8 +40,11 @@ public class ComboBoxUtils {
         cb.setSkin(comboBoxListViewSkin);
     }
 
-    public static <T> void initAutoComplete(ComboBox<T> cb, EventHandler<KeyEvent> keyEvent,
-            StringConverter<T> converter, Supplier<T> selectedSupplier) {
+    public static <T> void initAutoComplete(
+            ComboBox<T> cb,
+            EventHandler<KeyEvent> keyEvent,
+            StringConverter<T> converter,
+            Supplier<T> selectedSupplier) {
         if (!cb.isEditable()) {
             return;
         }
@@ -53,7 +56,9 @@ public class ComboBoxUtils {
         }
     }
 
-    public static <T> void initAutoComplete(ComboBox<T> cb, EventHandler<KeyEvent> keyEvent,
+    public static <T> void initAutoComplete(
+            ComboBox<T> cb,
+            EventHandler<KeyEvent> keyEvent,
             StringConverter<T> converter) {
         initAutoComplete(cb, keyEvent, converter, null);
     }
@@ -98,8 +103,8 @@ public class ComboBoxUtils {
     /**
      * Listens on selected item changes, accepts old value and new value.
      * 
-     * @param <T> type parameter of the ComboBox
-     * @param cb the ComboBox to listen to selected item changes
+     * @param <T>      type parameter of the ComboBox
+     * @param cb       the ComboBox to listen to selected item changes
      * @param consumer the consumer of old value and new value
      */
     public static <T> void onSelectedItemChanged(ComboBox<T> cb, BiConsumer<T, T> consumer) {

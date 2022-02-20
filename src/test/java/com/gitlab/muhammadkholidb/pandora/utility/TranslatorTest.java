@@ -25,9 +25,7 @@ public class TranslatorTest {
         resourceBundle = new ListResourceBundle() {
             @Override
             protected Object[][] getContents() {
-                return new Object[][] {
-                        { "MSG", "Message" }
-                };
+                return new Object[][] { { "MSG", "Message" } };
             }
         };
         translator = new Translator(resourceBundle);

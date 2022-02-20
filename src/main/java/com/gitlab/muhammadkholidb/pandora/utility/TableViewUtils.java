@@ -26,8 +26,11 @@ public class TableViewUtils {
         col.setStyle(style);
     }
 
-    public static <M, T> void initTableColumn(TableColumn<M, T> col,
-            Callback<TableColumn<M, T>, TableCell<M, T>> cellFactory, Function<M, T> valueFunction, String style) {
+    public static <M, T> void initTableColumn(
+            TableColumn<M, T> col,
+            Callback<TableColumn<M, T>, TableCell<M, T>> cellFactory,
+            Function<M, T> valueFunction,
+            String style) {
         if (cellFactory != null) {
             col.setCellFactory(cellFactory);
         }
@@ -39,8 +42,10 @@ public class TableViewUtils {
         }
     }
 
-    public static <M, T> void initTableColumn(TableColumn<M, T> col,
-            Callback<TableColumn<M, T>, TableCell<M, T>> cellFactory, Function<M, T> valueFunction) {
+    public static <M, T> void initTableColumn(
+            TableColumn<M, T> col,
+            Callback<TableColumn<M, T>, TableCell<M, T>> cellFactory,
+            Function<M, T> valueFunction) {
         initTableColumn(col, cellFactory, valueFunction, null);
     }
 

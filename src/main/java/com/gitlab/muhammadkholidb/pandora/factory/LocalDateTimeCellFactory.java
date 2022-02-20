@@ -7,7 +7,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 
-public class LocalDateTimeCellFactory<E> implements Callback<TableColumn<E, LocalDateTime>, TableCell<E, LocalDateTime>> {
+public class LocalDateTimeCellFactory<E>
+        implements Callback<TableColumn<E, LocalDateTime>, TableCell<E, LocalDateTime>> {
 
     private String pattern;
 

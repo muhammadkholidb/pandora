@@ -54,9 +54,15 @@ public class StageUtils {
      * @param resizeable is this stage can be resized?
      * @param modality   modality of the stage.
      * @param onClose    action to run on stage close.
+     * 
      * @return the created and displayed stage.
      */
-    public static Stage open(IPage page, String title, String[] iconPaths, boolean resizeable, Modality modality,
+    public static Stage open(
+            IPage page,
+            String title,
+            String[] iconPaths,
+            boolean resizeable,
+            Modality modality,
             EventHandler<WindowEvent> onClose) {
 
         try {

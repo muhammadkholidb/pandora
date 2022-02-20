@@ -1,6 +1,5 @@
 package com.gitlab.muhammadkholidb.pandora.utility;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
