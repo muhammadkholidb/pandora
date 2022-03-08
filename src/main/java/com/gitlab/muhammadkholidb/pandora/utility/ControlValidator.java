@@ -1,14 +1,17 @@
 package com.gitlab.muhammadkholidb.pandora.utility;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.function.BooleanSupplier;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.routines.DomainValidator;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import lombok.Getter;
 
 public class ControlValidator {
@@ -75,6 +78,32 @@ public class ControlValidator {
 
     public void validateCustom(BooleanSupplier supplier, IMessage message) {
         validateCustom(supplier, translator.translate(message));
+    }
+
+    public void validateNumeric(TextField tf, String message) {
+        if (NumberUtils.isDigits(tf.getText())) {
+            result.addMessage(message);
+        }
+    }
+
+    public void validateNumeric(TextField tf, IMessage message) {
+        validateNumeric(tf, translator.translate(message));
+    }
+
+    public void validatePositive(TextField tf, String message) {
+        if (NumberUtils.toDouble(tf.getText(), 0d) <= 0) {
+            result.addMessage(message);
+        }
+    }
+
+    public void validatePositive(TextField tf, IMessage message) {
+        validatePositive(tf, translator.translate(message));
+    }
+
+    public void validateNegative(TextField tf, String message) {
+        if (NumberUtils.toDouble(tf.getText(), 0d) >= 0) {
+            result.addMessage(message);
+        }
     }
 
 }
