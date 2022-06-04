@@ -1,5 +1,7 @@
 package com.gitlab.muhammadkholidb.pandora.utility;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -84,12 +86,24 @@ public class ComboBoxUtils {
     @SuppressWarnings("unchecked")
     public static <T> void init(ComboBox<T> cb, StringConverter<T> converter, T... data) {
         if (ArrayUtils.isNotEmpty(data)) {
+            init(cb, converter, List.of(data));
+        }
+    }
+
+    public static <T> void init(ComboBox<T> cb, StringConverter<T> converter, Collection<T> data) {
+        if (data != null) {
             cb.setItems(FXCollections.observableArrayList(data));
         }
         cb.setConverter(converter);
     }
 
     public static void initSimple(ComboBox<SimpleComboBoxModel> cb, SimpleComboBoxModel... data) {
+        if (ArrayUtils.isNotEmpty(data)) {
+            initSimple(cb, List.of(data));
+        }
+    }
+
+    public static void initSimple(ComboBox<SimpleComboBoxModel> cb, List<SimpleComboBoxModel> data) {
         init(cb, new DefaultStringConverterAdapter<>(cb) {
 
             @Override

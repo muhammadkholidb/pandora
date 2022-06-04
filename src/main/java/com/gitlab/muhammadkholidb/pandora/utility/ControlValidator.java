@@ -1,6 +1,5 @@
 package com.gitlab.muhammadkholidb.pandora.utility;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.function.BooleanSupplier;
 
@@ -11,7 +10,6 @@ import org.apache.commons.validator.routines.DomainValidator;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import lombok.Getter;
 
 public class ControlValidator {
