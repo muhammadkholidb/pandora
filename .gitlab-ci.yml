@@ -12,7 +12,7 @@ variables:
     -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository \
     -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN \
     -Dorg.slf4j.simpleLogger.showDateTime=true \
-    -Djava.awt.headless=true"
+    -Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dglass.platform=Monocle -Dmonocle.platform=Headless -Dprism.order=sw -Dprism.text=t2k -Dtestfx.setup.timeout=2500 -Dprism.verbose=true"
 
 cache:
   paths:
@@ -29,11 +29,9 @@ test:
   stage: test
   before_script:
     - apt-get update 
-    - apt-get install -y xvfb
-    - Xvfb :99 &>/dev/null &
-    - export DISPLAY=:99
+    - apt-get install -y libxtst6 libgtk2.0-0
   script:
-    - mvn $MAVEN_CLI_OPTS -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw -Dprism.verbose=true verify
+    - mvn $MAVEN_CLI_OPTS verify
     - if [ -f $JACOCO_REPORT_HTML ]; then cat $JACOCO_REPORT_HTML | grep -o "Total[^%]*%"; fi
   allow_failure: false
   coverage: "/Total.*?([0-9]{1,3})%/"
