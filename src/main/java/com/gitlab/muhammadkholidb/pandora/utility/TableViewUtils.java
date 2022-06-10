@@ -65,6 +65,18 @@ public class TableViewUtils {
         return table.getSelectionModel().getSelectedItems();
     }
 
+    public static int getSelectedIndex(TableView<?> table) {
+        return table.getSelectionModel().getSelectedIndex();
+    }
+
+    public static ObservableList<Integer> getSelectedIndices(TableView<?> table) {
+        return table.getSelectionModel().getSelectedIndices();
+    }
+
+    public static <T> T getItemByIndex(int index, TableView<T> table) {
+        return table.getItems().get(index);
+    }
+
     public static <T> int getItemIndex(T item, TableView<T> table) {
         return getItemIndex((Predicate<T>) t -> t.equals(item), table);
     }
