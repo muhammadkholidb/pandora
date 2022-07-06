@@ -19,7 +19,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.StringConverter;
 
-public class ComboBoxUtils {
+public final class ComboBoxUtils {
 
     private ComboBoxUtils() {
     }

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 
 @SuppressWarnings("unchecked")
-public class PageData {
+public final class PageData {
 
     @Getter
     private PageSet pageSet;

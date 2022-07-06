@@ -13,9 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
-public class StageUtils {
+public final class StageUtils {
 
     private static String defaultTitle;
     private static String[] defaultIconPaths;
@@ -63,21 +64,27 @@ public class StageUtils {
             String[] iconPaths,
             boolean resizeable,
             Modality modality,
+            StageStyle stageStyle,
             EventHandler<WindowEvent> onClose) {
 
         try {
             PageContext container = PageLoader.load(page);
             Scene scene = new Scene(container.getRoot());
             Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setResizable(resizeable);
             if (ArrayUtils.isNotEmpty(iconPaths)) {
                 setIcons(stage, iconPaths);
             }
             if (StringUtils.isNotBlank(title)) {
                 stage.setTitle(title);
             }
-            stage.setResizable(resizeable);
-            stage.initModality(modality);
-            stage.setScene(scene);
+            if (modality != null) {
+                stage.initModality(modality);
+            }
+            if (stageStyle != null) {
+                stage.initStyle(stageStyle);
+            }
             if (onClose != null) {
                 stage.setOnHidden(onClose::handle);
             }
@@ -89,7 +96,7 @@ public class StageUtils {
     }
 
     public static Stage open(IPage page, boolean resizeable, EventHandler<WindowEvent> onClose) {
-        return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.NONE, onClose);
+        return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.NONE, null, onClose);
     }
 
     public static Stage open(IPage page, boolean resizeable) {
@@ -104,20 +111,32 @@ public class StageUtils {
         return open(page, null);
     }
 
+    public static Stage modal(
+            IPage page,
+            boolean resizeable,
+            StageStyle stageStyle,
+            EventHandler<WindowEvent> onClose) {
+        return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.APPLICATION_MODAL, stageStyle, onClose);
+    }
+
     public static Stage modal(IPage page, boolean resizeable, EventHandler<WindowEvent> onClose) {
-        return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.APPLICATION_MODAL, onClose);
+        return open(page, defaultTitle, defaultIconPaths, resizeable, Modality.APPLICATION_MODAL, null, onClose);
     }
 
     public static Stage modal(IPage page, boolean resizeable) {
-        return modal(page, resizeable, null);
+        return modal(page, resizeable, null, null);
     }
 
     public static Stage modal(IPage page, EventHandler<WindowEvent> onClose) {
-        return modal(page, true, onClose);
+        return modal(page, true, null, onClose);
     }
 
     public static Stage modal(IPage page) {
-        return modal(page, null);
+        return modal(page, true, null, null);
+    }
+
+    public static Stage modal(IPage page, StageStyle stageStyle) {
+        return modal(page, true, stageStyle, null);
     }
 
     public static void setIcons(Stage stage, String... iconPaths) {

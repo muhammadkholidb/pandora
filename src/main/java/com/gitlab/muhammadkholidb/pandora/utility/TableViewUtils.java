@@ -13,7 +13,7 @@ import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
-public class TableViewUtils {
+public final class TableViewUtils {
 
     private TableViewUtils() {
     }

@@ -4,7 +4,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 
-public class KeyConstants {
+public final class KeyConstants {
 
     private KeyConstants() {
     }

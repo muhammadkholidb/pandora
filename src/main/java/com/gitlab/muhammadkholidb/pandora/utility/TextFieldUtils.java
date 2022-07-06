@@ -9,7 +9,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import javafx.scene.control.TextField;
 
-public class TextFieldUtils {
+public final class TextFieldUtils {
 
     private TextFieldUtils() {
     }

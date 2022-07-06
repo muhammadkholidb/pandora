@@ -15,7 +15,9 @@ public class Translator {
         try {
             return resourceBundle.getString(messageCode);
         } catch (Exception e) {
-            log.warn("Failed to translate message code '{}': {}", messageCode, e.toString());
+            if (log.isWarnEnabled()) {
+                log.warn("Failed to translate message code '{}': {}", messageCode, e.toString());
+            }
             return defaultMessage;
         }
     }

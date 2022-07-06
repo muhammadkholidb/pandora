@@ -10,7 +10,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
-public class PageLoader {
+public final class PageLoader {
 
     private static final String TEMPLATE_SUFFIX = ".fxml";
 

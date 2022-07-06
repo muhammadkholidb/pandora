@@ -5,7 +5,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
-public class EventUtils {
+public final class EventUtils {
 
     private EventUtils() {
     }
